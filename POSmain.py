@@ -47,9 +47,13 @@ class StorePOS:
         checkoutFrame.grid(column=3, row=0)
 
         """ Checkout Frame Buttons """
-        ttk.Button(mainframe, text="Manual Input", padding="20", command=self.manualInput).grid(column=3, row=0, rowspan=2)
-        ttk.Button(mainframe, text="Cancel Sale", padding="20", command=self.cancelSale).grid(column=3, row=2, rowspan=2)
-        ttk.Button(mainframe, text="Checkout", padding="20", command=self.checkout).grid(column=3, row=4, rowspan=2)
+        global checkoutImage
+        global cancelSaleImage
+        checkoutImage = PhotoImage(file="Checkout.png")
+        cancelSaleImage = PhotoImage(file="CancelSale.png")
+        manualInputBtn = ttk.Button(mainframe, text="Manual Input", padding = "20", command=self.manualInput).grid(column=3, row=0, rowspan=2)
+        cancelSaleBtn = ttk.Button(mainframe, image=cancelSaleImage, command=self.cancelSale).grid(column=3, row=2, rowspan=2)
+        checkoutBtn = ttk.Button(mainframe, image=checkoutImage, command=self.checkout).grid(column=3, row=4, rowspan=2)
 
     def addToCart(self):
         print("Item added to cart")
