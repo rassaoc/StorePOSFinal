@@ -47,9 +47,9 @@ class StorePOS:
         checkoutFrame.grid(column=3, row=0)
 
         """ Checkout Frame Buttons """
-        global checkoutImage
+        global checkoutImage # Makes the images global variables to avoid garbage collection
         global cancelSaleImage
-        checkoutImage = PhotoImage(file="Checkout.png")
+        checkoutImage = PhotoImage(file="Checkout.png") # Set unset global variables to their images
         cancelSaleImage = PhotoImage(file="CancelSale.png")
         manualInputBtn = ttk.Button(mainframe, text="Manual Input", padding = "20", command=self.manualInput).grid(column=3, row=0, rowspan=2)
         cancelSaleBtn = ttk.Button(mainframe, image=cancelSaleImage, command=self.cancelSale).grid(column=3, row=2, rowspan=2)
